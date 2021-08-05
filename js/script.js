@@ -3,18 +3,9 @@ Treehouse Techdegree:
 FSJS Project 2 - Data Pagination and Filtering
 */
 
-
-
-/*
-For assistance:
-   Check out the "Project Resources" section of the Instructions tab: https://teamtreehouse.com/projects/data-pagination-and-filtering#instructions
-   Reach out in your Slack community: https://treehouse-fsjs-102.slack.com/app_redirect?channel=unit-2
-*/
-
 const itemsPerPage = 9;
 
 /*
-Create the `showPage` function
 This function will create and insert/append the elements needed to display a "page" of nine students
 */
 function showPage(list, page) {
@@ -45,40 +36,42 @@ function showPage(list, page) {
 
 
 /*
-Create the `addPagination` function
 This function will create and insert/append the elements needed for the pagination buttons
 */
 function addPagination(list) {
+   // append buttons
    const numOfPages = Math.ceil(list.length / itemsPerPage);
    const linkListUL = document.querySelector('.link-list');
 
    linkListUL.innerHTML = '';
 
    for (let i = 1; i <= numOfPages; i++) {
-      let pageNumHTML = `
+      let liHTML = `
       <li>
          <button type="button">${i}</button>
       </li>
-      `
-      linkListUL.insertAdjacentHTML('beforeend', pageNumHTML);
+      `;
+
+      linkListUL.insertAdjacentHTML('beforeend', liHTML);
    }
 
-   const firstPaginationButton = document.querySelector('.link-list').firstElementChild.firstElementChild;
+   // add buttons style and functionality
+   const firstPaginationButton = document.querySelector('.link-list li:first-child button');
    firstPaginationButton.className = 'active';
 
    linkListUL.addEventListener('click', (e)=> {
       if(e.target.tagName === 'BUTTON') {
-         const prevActive = document.querySelector('.active');
-         prevActive.className = '';
+         let numBtn = e.target;
+         let currActive = document.querySelector('.active');
 
-         e.target.className = 'active';
+         currActive.className = '';
+         numBtn.className = 'active';
 
-         showPage(list, e.target.textContent);
+         showPage(list, numBtn.textContent);
       }
-   })
+   });
 }
 
 
-// Call functions
 showPage(data, 1);
 addPagination(data);
