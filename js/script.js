@@ -24,9 +24,9 @@ function addSearchComponent(list) {
    const searchBtn = document.querySelector('.student-search button');
 
    // event listeners
-   // searchBar.addEventListener('keyup', ()=> {
-   //    displayMatches(list, searchBar.value);
-   // });
+   searchBar.addEventListener('keyup', ()=> {
+      displayMatches(list, searchBar.value);
+   });
 
    searchBar.addEventListener('keypress', (e)=> {
       // if "Enter" key pressed
