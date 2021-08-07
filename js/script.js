@@ -7,7 +7,8 @@ const itemsPerPage = 9;
 
 
 /*
-This function will add a search bar to the page
+This function will add a search bar to the page.
+The search bar will filter students by name the page with the results
 */
 function addSearchComponent(list) {
    const header = document.querySelector('header');
@@ -53,8 +54,6 @@ function displayMatches(list, search) {
          matches.push(list[i]);
       }
    }
-
-   //return matches;
 
    if(matches) {
       showPage(matches, 1);
@@ -136,7 +135,6 @@ function addPagination(list) {
       });
    }
 }
-
 
 
 addSearchComponent(data);
