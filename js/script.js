@@ -8,7 +8,7 @@ const itemsPerPage = 9;
 
 /*
 This function will add a search bar to the page.
-The search bar will filter students by name the page with the results
+Adds event listeners to the search bar that update the page with search results
 */
 function addSearchComponent(list) {
    const header = document.querySelector('header');
@@ -63,7 +63,7 @@ function displayMatches(list, search) {
 
 
 /*
-This function will create and insert/append the elements needed to display a "page" of nine students
+This function will create and insert/append the elements needed to display a "page" of students
 */
 function showPage(list, page) {
    const startIndex = (page * itemsPerPage) - itemsPerPage;
@@ -99,6 +99,7 @@ function showPage(list, page) {
 
 /*
 This function will create and insert/append the elements needed for the pagination buttons
+Adds event listener to pagination buttons that update page results
 */
 function addPagination(list) {
    const numOfPages = Math.ceil(list.length / itemsPerPage);
