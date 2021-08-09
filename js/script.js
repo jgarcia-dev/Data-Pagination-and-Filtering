@@ -86,12 +86,12 @@ function showPage(list, page) {
                   <span class="date">Joined ${list[i].registered.date}</span>
                </div>
             </li>
-            `
+            `;
             studentUL.insertAdjacentHTML('beforeend', studentDetailsHTML);
          }
       }
    } else {
-      const noResultsHTML = "<span class='no-results'>Sorry, no results</span>"
+      const noResultsHTML = "<span class='no-results'>Sorry, no results</span>";
       studentUL.insertAdjacentHTML('beforeend', noResultsHTML);
    }   
 }
